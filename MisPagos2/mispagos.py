@@ -39,6 +39,10 @@ def close_db(error):
 
 
 @app.route('/')
+def index():
+	return render_template('index.html')		
+		
+@app.route('/show')
 def show_pagosmensuales():
 	db = get_db()
 	cur = db.execute('SELECT name_p, vencimiento, valor FROM pagosmensuales\
@@ -72,11 +76,11 @@ def login():
 		else:
 			session['logged_in'] = True
 			flash('You were logged in')
-			return redirect(url_for('show_pagosmensuales'))
+			return redirect(url_for('index'))
 	return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
 	session.pop('logged_in',None)
 	flash('You were logged out')
-	return redirect(url_for('show_pagosmensuales'))		
+	return redirect(url_for('login'))		
