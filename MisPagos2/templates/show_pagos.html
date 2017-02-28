@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+	{% if session.logged_in %}
+		<form action="{{ url_for('add_pago') }}" method=post class=add-pago>
+			<dl>
+				<dt> Mes:
+				<dd><input type=number size=30 name=id_mes>			
+				<dt> Pago:
+				<dd><input type=number size=30 name=id_pago>
+				<dt> Vencimiento:
+				<dd><input type=text size=30 name=vencimiento>
+				<dt> Valor:				
+				<dd><input type=number size=30 name=valor>
+				<dd><input type=submit value=Share>
+			</dl>
+		</form>
+	{% endif %}
+	<table class=table>
+		<tr>
+			<th>Pago</th>
+			<th>Vencimiento</th>
+			<th>Monto</th>
+		</tr>
+	{% for pago in pagos%}
+		<tr>
+			<th>{{ pago.name_p }}</th>
+			<th>{{ pago.vencimiento }}</th>
+			<th>{{ pago.valor }}</th>
+		</tr>	
+	{% else %}
+		<li><em> Umbelievable. Not entries here so far </em>
+	{% endfor %}
+	</table>
+{% endblock %}	
