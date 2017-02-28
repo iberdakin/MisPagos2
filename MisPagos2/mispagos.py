@@ -51,8 +51,11 @@ def add_pago():
 	if not session.get('logged_in'):
 		abort(401)
 	db = get_db()
+	nombre=request.form['name_p']
+	cur=db.execute('SELECT id_p FROM mispagos WHERE name_p=(?)',(nombre,))
+	idp = cur.fetchone()
 	db.execute('INSERT INTO pagosmensuales (id_mes, id_pago, vencimiento, valor) values (?,?,?,?)',
-				[request.form['id_mes'], request.form['id_pago'], request.form['vencimiento'],\
+				[request.form['id_mes'], idp[0], request.form['vencimiento'],\
 				request.form['valor']])
 	db.commit()
 	flash('New entry was succesfully posted')
