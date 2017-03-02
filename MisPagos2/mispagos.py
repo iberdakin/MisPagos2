@@ -37,10 +37,6 @@ def close_db(error):
 	if hasattr(g, 'sqlite_db'):
 		g.sqlite_db.close()				
 
-
-@app.route('/')
-def index():
-	return render_template('index.html')		
 		
 @app.route('/show')
 def show_pagosmensuales():
@@ -49,6 +45,10 @@ def show_pagosmensuales():
 					  INNER JOIN mispagos ON id_pago=id_p')
 	pagos = cur.fetchall()
 	return render_template('show_pagos.html',pagos=pagos)
+	
+@app.route('/new')
+def new_pago():
+	return render_template('new_pago.html')	
 
 @app.route('/add', methods=['POST'])
 def add_pago():
@@ -76,7 +76,7 @@ def login():
 		else:
 			session['logged_in'] = True
 			flash('You were logged in')
-			return redirect(url_for('index'))
+			return redirect(url_for('show_pagosmensuales'))
 	return render_template('login.html', error=error)
 
 @app.route('/logout')

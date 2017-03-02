@@ -50,23 +50,22 @@
 				<p><a href="/new" class="btn btn-info" role="button" px>add</a></p>
 			</div>  
 		  
-			<div class="col-sm-8 sidenav">
-				<table class="table table-striped">
-					<tr>
-						<th>Pago</th>
-						<th>Vencimiento</th>
-						<th>Monto</th>
-					</tr>
-				{% for pago in pagos%}
-					<tr>
-						<th>{{ pago.name_p }}</th>
-						<th>{{ pago.vencimiento }}</th>
-						<th>{{ pago.valor }}</th>
-					</tr>	
-				{% else %}
-					<li><em> Umbelievable. Not entries here so far </em>
-				{% endfor %}
-				</table>
+			<div class="col-sm-8 sidenav">			
+			{% if session.logged_in %}
+				<form action="{{ url_for('add_pago') }}" method=post>
+					<dl>
+						<dt> Mes:			
+						<dd><input type=number size=30 name=id_mes>			
+						<dt> Pago:
+						<dd><input type=text size=30 name=name_p>
+						<dt> Vencimiento:
+						<dd><input type=text size=30 name=vencimiento>
+						<dt> Valor:				
+						<dd><input type=number size=30 name=valor>
+						<dd><input type=submit value=Share>
+					</dl>
+				</form>
+			{% endif %}			
 			</div>
 			<div class="col-sm-2 sidenav">
 
