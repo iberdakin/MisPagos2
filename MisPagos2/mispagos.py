@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.config.from_object(__name__) #Load config from this file
 
 # Load default config and override config from an environment variable
+
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'mispagos.db'),
     SECRET_KEY='development key',
@@ -20,10 +21,11 @@ app.config.from_envvar('MISPAGOS_SETTINGS', silent=True)
 
 
 def connect_db():
-        """Connects to the specific database"""
-        rv = sqlite3.connect(app.config['DATABASE'])
-        rv.row_factory = sqlite3.Row
-        return rv
+    """Connects to the specific database"""
+    rv = sqlite3.connect(app.config['DATABASE'])
+    print app.config['DATABASE']
+    rv.row_factory = sqlite3.Row
+    return rv
 
 
 def get_db():
@@ -44,7 +46,7 @@ def close_db(error):
 @app.route('/show')
 def show_pagosmensuales():
     db = get_db()
-    cur = db.execute('SELECT name_p, vencimiento, valor FROM pagosmensuales'
+    cur = db.execute('SELECT name_p, vencimiento, valor FROM pagosmensuales '
                      'INNER JOIN mispagos ON id_pago=id_p')
     pagos = cur.fetchall()
     return render_template('show_pagos.html',pagos=pagos)
