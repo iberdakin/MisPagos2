@@ -1,1 +1,1 @@
-web: FLASK_APP=MisPagos2/mispagos.py flask run
+web: gunicorn MisPagos2.mispagos:app
