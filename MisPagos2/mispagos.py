@@ -43,6 +43,7 @@ def close_db(error):
         g.sqlite_db.close()
 
 
+"""		
 @app.route('/show')
 def show_pagosmensuales():
     db = get_db()
@@ -71,7 +72,7 @@ def add_pago():
     db.commit()
     flash('New entry was succesfully posted')
     return redirect(url_for('show_pagosmensuales'))
-
+"""
 
 @app.route('/login', methods=['GET','POST'])
 def login():
@@ -84,7 +85,7 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return redirect(url_for('show_pagosmensuales'))
+            return redirect(url_for('index'))
     return render_template('login.html', error=error)
 
 
@@ -94,3 +95,6 @@ def logout():
     flash('You were logged out')
     return redirect(url_for('login'))
 
+@app.route('/index')
+def index():
+    return render_template('index.html')
