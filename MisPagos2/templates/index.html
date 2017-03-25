@@ -9,9 +9,11 @@
 	<!-- Angular and extensions-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.min.js"></script>
+
 	<!-- Bootstrap -->
-    <script src="{{ url_for('static', filename='bootstrap/ui-bootstrap-tpls-2.5.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js') }}"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 	<!-- mispagos scripts -->
     <script src="{{ url_for('static', filename='ng/pagos-list/pagos-list.module.js') }}"></script>
 	<script src="{{ url_for('static', filename='ng/mispagos.module.js') }}"></script>
