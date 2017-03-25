@@ -95,6 +95,7 @@ def logout():
     flash('You were logged out')
     return redirect(url_for('login'))
 
-@app.route('/index')
+
+@app.route('/')
 def index():
     return render_template('index.html')
