@@ -1,0 +1,34 @@
+<h1>Lista de pagos Motherfuka!</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      Search: <input class="form-control" ng-model="$ctrl.query" />
+
+	</div>
+    <div class="col-md-10">
+      <!--Body content-->
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>Value</th>
+				<th>Month</th>
+			</tr>
+			<tr ng-repeat="pago in $ctrl.pagos | filter:$ctrl.query">
+				<th>{{ pago.name }}</th>
+				<th>{{ pago.value }}</th>
+				<th>{{ pago.month }}</th>
+			</tr>
+		</table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

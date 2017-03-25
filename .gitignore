@@ -2,3 +2,4 @@
 flaskr.db
 .eggs/
 /env/
+node_modules/
