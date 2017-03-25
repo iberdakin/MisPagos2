@@ -4,6 +4,10 @@
 ```
 $ FLASK_APP=MisPagos2/mispagos.py flask run -p 5001 --debugger --reload
 ```
+en otro terminal corro webpack para buildear el frontend
+```
+$ webpack -w
+```
 
 # Hosting
 

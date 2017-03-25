@@ -4,7 +4,9 @@
   "description": "``` $ FLASK_APP=MisPagos2/mispagos.py flask run -p 5001 --debugger --reload ```",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=webpack-dev-server node_modules/.bin/webpack-dev-server --progress --colors --port 2992 --content-base device_repair/static/dist",
+    "build": "node_modules/.bin/webpack --progress --profile --colors"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,10 @@
     "angular": "^1.6.3",
     "angular-route": "^1.6.3",
     "angular-ui-bootstrap": "^2.5.0"
+  },
+  "devDependencies": {
+    "html-loader": "^0.4.5",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
   }
 }

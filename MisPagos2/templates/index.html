@@ -1,24 +1,14 @@
 <!doctype html>
-<html lang="en" ng-app="mispagosApp">
+<html lang="en" ng-app="app">
 <head>
 	<title>MisPagos</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-	<!-- Angular and extensions-->
-    <script src="{{ url_for('static', filename='node_modules/angular/angular.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='node_modules/angular-route/angular-route.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js') }}"></script>
-
 	<!-- Bootstrap -->
-    <script src="{{ url_for('static', filename='node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js') }}"></script>
 	<link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
-
 	<!-- mispagos scripts -->
-    <script src="{{ url_for('static', filename='ng/pagos-list/pagos-list.module.js') }}"></script>
-	<script src="{{ url_for('static', filename='ng/mispagos.module.js') }}"></script>
-    <script src="{{ url_for('static', filename='ng/pagos-list/pagos-list.component.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/app.bundle.js') }}"></script>
 
 </head>
 
